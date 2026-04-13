@@ -53,13 +53,27 @@
   labelfont=bf,
   labelsep=period
 }
-% caption above table, bold label and title text.
 \captionsetup[table]{
   position=top,
   font=small,
   labelfont=bf,
-  textfont=bf
+  textfont=bf,
+  singlelinecheck=false
 }
+\captionsetup[figure]{
+  position=top,
+  font=small,
+  labelfont=bf,
+  textfont=bf,
+  singlelinecheck=false
+}
+
+\newcommand{\figuresource}[1]{%
+  \par\smallskip
+  {\footnotesize\raggedright\textsc{Source}.---#1\par}}
+\newcommand{\figurenote}[1]{%
+  \par\smallskip
+  {\footnotesize\raggedright\textsc{Note}.---#1\par}}
 
 \sisetup{
   group-separator = {,},
