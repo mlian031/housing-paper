@@ -1,0 +1,120 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{styles/paper}[2026/03/19 mike's working paper style]
+
+% Page layout ---------------------------------------------------------------
+\RequirePackage[margin=1in]{geometry}
+
+% Fonts and typography ------------------------------------------------------
+\RequirePackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{newtxtext}
+\RequirePackage{newtxmath}
+\RequirePackage{microtype}
+\RequirePackage{setspace}
+\RequirePackage{titling}
+\RequirePackage{titlesec}
+
+% Tables, figures, and math -------------------------------------------------
+\RequirePackage{booktabs}
+\RequirePackage{caption}
+\RequirePackage{float}
+\RequirePackage{graphicx}
+\RequirePackage{rotating}
+\RequirePackage{siunitx}
+\RequirePackage{tabularray}
+\RequirePackage{threeparttable}
+
+% Footnotes (must load before hyperref) -------------------------------------
+\RequirePackage[bottom,hang]{footmisc}
+\setlength{\footnotemargin}{0.75em}
+
+% Citations and links -------------------------------------------------------
+\RequirePackage[authoryear,round]{natbib}
+\RequirePackage{xcolor}
+\definecolor{paperlink}{HTML}{1568c0}
+\RequirePackage{hyperref}
+\RequirePackage{xurl}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=paperlink,
+  citecolor=paperlink,
+  urlcolor=paperlink,
+  filecolor=paperlink,
+  pdfborderstyle={/S/U/W 0}
+}
+
+% Table libraries -----------------------------------------------------------
+\UseTblrLibrary{booktabs}
+\UseTblrLibrary{siunitx}
+
+% Captions and numeric formatting ------------------------------------------
+\captionsetup{
+  font=small,
+  labelfont=bf,
+  labelsep=period
+}
+% caption above table, bold label and title text.
+\captionsetup[table]{
+  position=top,
+  font=small,
+  labelfont=bf,
+  textfont=bf
+}
+
+\sisetup{
+  group-separator = {,},
+  group-minimum-digits = 4,
+  input-symbols = (),
+  table-number-alignment = center
+}
+
+% Abstract / title-page layout ----------------------------------------------
+\RequirePackage{changepage}
+
+% Paragraph layout ----------------------------------------------------------
+\setstretch{1.3}
+\setlength{\parindent}{1.5em}
+\setlength{\parskip}{0.3em plus 0.06em minus 0.03em}
+\setlength{\bibsep}{0.35em}
+
+% Title block ---------------------------------------------------------------
+\setlength{\droptitle}{-2em}
+
+\pretitle{\begin{center}\LARGE\bfseries}
+\posttitle{\par\end{center}\vspace{-0.8em}}
+\preauthor{\begin{center}\normalsize}
+\postauthor{\par\end{center}\vspace{-0.4em}}
+\predate{\begin{center}\small}
+\postdate{\par\end{center}\vspace{0.8em}}
+
+% Section headings ----------------------------------------------------------
+\titleformat{\section}
+  {\large\bfseries}
+  {\thesection.}
+  {0.5em}
+  {}
+\titlespacing{\section}{0pt}{1.35em}{0.45em}
+
+\titleformat{\subsection}
+  {\normalsize\bfseries}
+  {\thesubsection}
+  {0.5em}
+  {}
+\titlespacing{\subsection}{0pt}{1em}{0.35em}
+
+\titleformat{\subsubsection}
+  {\normalsize\bfseries}
+  {}
+  {0pt}
+  {}
+\titlespacing{\subsubsection}{0pt}{0.85em}{0.3em}
+
+% Bibliography URL formatting -----------------------------------------------
+\urlstyle{same}
+
+% Figure and table paths ----------------------------------------------------
+\graphicspath{{../output/figures/}}
+
+\newcommand{\figurepath}[1]{../output/figures/#1}
+\newcommand{\tablepath}[1]{../output/tables/#1}
+\newcommand{\inputtable}[1]{\input{\tablepath{#1}}}
